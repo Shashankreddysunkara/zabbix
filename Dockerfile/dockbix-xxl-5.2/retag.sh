@@ -14,7 +14,7 @@ do
     git push origin :refs/tags/$t
     tags=("${tags[@]}" "$t")
 done
-git push origin master
+git push origin main
 git push origin --tags
 
 # create tags from the list
@@ -22,7 +22,7 @@ tags=('4.0.0' '4.0.1' '4.0.2' '4.0.3' '4.0.4' '4.0.5' '4.0.6' '4.0.7' '4.0.8' '4
 for t in "${tags[@]}"
 do
     echo "Creating tag $t"
-    git checkout master
+    git checkout main
     sed -i -e "s#^[[:space:]]*ZABBIX_VERSION=.*#  ZABBIX_VERSION=$t \\\#" Dockerfile
     sleep 5    
     git add Dockerfile
@@ -33,14 +33,14 @@ do
     sleep 5
     last=$t        
 done
-git push origin master
+git push origin main
 git push origin --tags
 
 # master is the latest stable tag
-git checkout master
+git checkout main
 sed -i -e "s#^[[:space:]]*ZABBIX_VERSION=.*#  ZABBIX_VERSION=5.2 \\\#" Dockerfile
 sleep 5
 git add Dockerfile
 sleep 5
-git commit -m "Master = the latest stable tag"
-git push origin master
+git commit -m "main = the latest stable tag"
+git push origin main
