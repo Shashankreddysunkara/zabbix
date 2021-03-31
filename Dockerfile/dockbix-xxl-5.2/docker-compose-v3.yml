@@ -10,12 +10,12 @@ services:
       - MARIADB_USER=zabbix
       - MARIADB_PASS=my_password
   zabbix-server:
-    image: monitoringartist/dockbix-xxl:latest
+    image: dock101/dockbix-xxl:latest
     depends_on:
       - zabbix-db
     ports:
-      - "80:80"
-      - "10051:10051"
+      - "3001:80"
+      - "10551:10051"
     volumes:
       - /etc/localtime:/etc/localtime:ro
     links:
