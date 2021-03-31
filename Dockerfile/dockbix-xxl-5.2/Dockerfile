@@ -4,7 +4,7 @@ LABEL maintainer "shashank <shashank@datacultr.com>"
 # ZABBIX_VERSION=trunk tags/5.2 branches/dev/ZBXNEXT-1263-1
 
 ENV \
-  ZABBIX_VERSION=5.2 \
+  ZABBIX_VERSION=release/5.2 \
   ZS_enabled=true \
   ZA_enabled=true \
   ZW_enabled=true \
