@@ -95,7 +95,7 @@ ADD container-files-base /
 # Layer: zabbix
 COPY container-files-zabbix /
 RUN \
-  export FPING_VERSION=5.2 && \
+  export FPING_VERSION=v5.0 && \
   yum clean all && \
   yum install -y https://repo.zabbix.com/zabbix/5.2/rhel/7/x86_64/zabbix-release-5.2-1.el7.noarch.rpm && \
   yum update -y && \
