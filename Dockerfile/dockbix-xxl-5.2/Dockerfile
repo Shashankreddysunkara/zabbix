@@ -1,10 +1,10 @@
 FROM centos:centos7
-LABEL maintainer "Jan Garaj <info@monitoringartist.com>"
+LABEL maintainer "shashank <shashank@datacultr.com>"
 
-# ZABBIX_VERSION=trunk tags/3.0.1 branches/dev/ZBXNEXT-1263-1
+# ZABBIX_VERSION=trunk tags/5.2 branches/dev/ZBXNEXT-1263-1
 
 ENV \
-  ZABBIX_VERSION=4.0.19 \
+  ZABBIX_VERSION=5.2 \
   ZS_enabled=true \
   ZA_enabled=true \
   ZW_enabled=true \
@@ -95,9 +95,9 @@ ADD container-files-base /
 # Layer: zabbix
 COPY container-files-zabbix /
 RUN \
-  export FPING_VERSION=4.2 && \
+  export FPING_VERSION=5.2 && \
   yum clean all && \
-  yum install -y https://repo.zabbix.com/zabbix/4.0/rhel/7/x86_64/zabbix-release-4.0-2.el7.noarch.rpm && \
+  yum install -y https://repo.zabbix.com/zabbix/5.2/rhel/7/x86_64/zabbix-release-5.2-1.el7.noarch.rpm && \
   yum update -y && \
   yum install -y tar git gcc automake make nmap traceroute iptstate wget \
               net-snmp-devel net-snmp-libs net-snmp net-snmp-perl iksemel \
